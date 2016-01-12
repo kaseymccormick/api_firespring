@@ -95,10 +95,16 @@ url = "https://my.firespring.com/api/v1/websites/2546/orders/1770953"
 uri = URI.parse(url)
 request = Net::HTTP::Get.new(uri.path)
 request['Accept'] = 'application/json'
-request.body = {'credentials' => {'username' => '2676d01ba72843269d41e10632509f33', 'password' => 'https://my.firespring.com/api/v1/websites/2546/orders/1770953'}}
+request.basic_auth("2676d01ba72843269d41e10632509f33", " ")
 response = Net::HTTP.get(uri)
 
 puts response
+
+# ---------------------------------------
+#  receiving error : {"errors":[{"type":"invalid_request_error","message":"You did not provide an API key.  You need to provide your API key as the HTTP Basic Authentication user with an empty password."}]}
+# --------------------------------------------
+
+
 #
 # ------------------------------
 # using my data in their answer
@@ -107,7 +113,12 @@ puts response
 #
 # http = Net::HTTP.new(uri.host, uri.port)
 # request = Net::HTTP::Get.new(uri.request_uri)
-# request.basic_auth("2676d01ba72843269d41e10632509f33", "https://my.firespring.com/api/v1/websites/2546/orders/1770953")
+# request.basic_auth("2676d01ba72843269d41e10632509f33", " ")
 # response = http.request(request)
+#
+# puts response
 
+# -----------------
+#  reciving error .../2.2.2/lib/ruby/2.2.0/net/protocol.rb:153:in `read_nonblock': end of file reached (EOFError)
+# --------
 
