@@ -95,7 +95,7 @@ url = "https://my.firespring.com/api/v1/websites/2546/orders/1770953"
 uri = URI.parse(url)
 request = Net::HTTP::Get.new(uri.path)
 request['Accept'] = 'application/json'
-request.basic_auth("2676d01ba72843269d41e10632509f33", " ")
+request.basic_auth('2676d01ba72843269d41e10632509f33', '' )
 response = Net::HTTP.get(uri)
 
 puts response
