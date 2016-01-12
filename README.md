@@ -11,3 +11,9 @@ Task: Please write a Ruby program that takes the following information and uses 
 **found:**
 - https://my.firespring.com/docs/api/
 
+
+** Notes**
+
+it's seems like just figuring out how to format the curl request into a request Ruby can handle. The problem right now is not being able to send authentication information correctly.
+
+considering using a gem - [curb] (https://github.com/taf2/curb)
