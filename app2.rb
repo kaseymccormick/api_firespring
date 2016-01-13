@@ -2,7 +2,6 @@ require 'net/http'
 require 'rubygems'
 require 'json'
 require 'uri'
-require 'curb'
 require 'pry'
 
 
@@ -121,11 +120,24 @@ request = Net::HTTP::Get.new(uri.request_uri)
 request.basic_auth("2676d01ba72843269d41e10632509f33", " ")
 response = http.request(request)
 
-puts response.code
-  puts response.body
+result = response.body
+  
+  format_result = JSON.parse(result, symbolize_names: true) #=> {key: :value}
+  
+  puts format_result[:priceSubtotal]
+  
+  
+  # def format(info)
+  #   output = Hash.new
+  #   hash.each do |key, value|
+  #     output[key] = cleanup(value)
+  #   end
+  #   output
+  # end
 
 # -----------------
-#  reciving error .../2.2.2/lib/ruby/2.2.0/net/protocol.rb:153:in `read_nonblock': end of file reached (EOFError)
+# reciving error .../2.2.2/lib/ruby/2.2.0/net/protocol.rb:153:in `read_nonblock': end of file reached (EOFError)
+# looked up read_nonblock end of file error, when using https - need use ssl true
 # --------
 	
 
