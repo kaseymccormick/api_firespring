@@ -122,9 +122,10 @@ response = http.request(request)
 
 result = response.body
   
-  format_result = JSON.parse(result, symbolize_names: true) #=> {key: :value}
+format_result = JSON.parse(result, symbolize_names: true) #=> {key: :value}
   
-  puts format_result[:priceSubtotal]
+puts "Price Total is #{format_result[:priceTotal]} "
+  
   
   
   # def format(info)
